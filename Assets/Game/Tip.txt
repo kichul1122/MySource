@@ -1,0 +1,27 @@
+
+- 이벤트 구독 / 구독 취소 네이밍
+	Ex) 
+	{	
+		SubscribeToUIManager();
+		UnSubscribeToUIManager(); 
+	}
+
+- 모든 OnClick이벤트 함수는 멤버변수로 만든 이벤트를 호출 하도록 설계
+	Ex)
+	{
+		public Action PlayButtonClicked;
+		public void OnClick_PlayButton() 
+		{
+			if (PlayButtonClicked != null)
+				PlayButtonClicked ();
+		}
+	}
+
+- Tag 비교는 CompareTag("") 함수 이용
+	Ex)
+	{
+		if(other.CompareTag (Constants.CHARACTER_TAG))
+		{
+			...
+		}
+	}
