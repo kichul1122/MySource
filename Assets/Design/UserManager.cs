@@ -19,6 +19,12 @@ public class UserManager : MonoBehaviour
 		LoadUserInstance();
 	}
 
+	public static int loopCount;
+	private void Update()
+	{
+		loopCount++;
+	}
+
 	[ContextMenu("SaveUserInstance")]
 	public void SaveUserInstance()
 	{
