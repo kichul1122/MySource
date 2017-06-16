@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class AccountInstance
 {
-	public AccountData accountData;
+	public AccountData accountData = new AccountData();
 
 	public string playTime;
 

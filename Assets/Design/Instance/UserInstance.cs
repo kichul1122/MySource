@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class UserInstance
 {
-	public AccountInstance account;
-	public CharacterInstance character;
-	public ItemInstance haveItem;
+	public AccountInstance account = new AccountInstance();
+	public CharacterInstance character = new CharacterInstance();
+	public ItemInstance inventoryItem = new ItemInstance();
 
 	//private UserInstance() { }
 	//private UserInstance(string ID)
