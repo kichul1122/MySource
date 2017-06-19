@@ -18,48 +18,50 @@ public class FSMController : FSM<FSMController.FSMState>
 	}
 
 	#region IDLE
-	IEnumerator IDLE_EnterState()
+	IEnumerator IDLE_Enter()
 	{
+		yield return new WaitForSeconds(0.2f);
+
 		Debug.Log("IDLE_EnterState " + UserManager.loopCount);
-
-		yield break;
-
 	}
 
-	void IDLE_UpdateState()
+	void IDLE_Update()
 	{
-		Debug.Log("IDLE_UpdateState " + UserManager.loopCount);
 
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			SetState(FSMState.ATTACK); return;
 		}
+
+		Debug.Log("IDLE_UpdateState " + UserManager.loopCount);
 	}
 
-	IEnumerator IDLE_ExitState()
+	void IDLE_Exit()
 	{
 		Debug.Log("IDLE_ExitState " + UserManager.loopCount);
-
-		yield break;
 	}
 	#endregion
-
-	#region ATTACK
-	IEnumerator ATTACK_EnterState()
+	 
+	#region ATTACK 
+	void ATTACK_Enter()
 	{
 		Debug.Log("ATTACK_EnterState " + UserManager.loopCount);
-		yield break;
 	}
 
-	void ATTACK_UpdateState()
+	void ATTACK_Update()
 	{
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			SetState(FSMState.IDLE); return;
+		}
+
 		Debug.Log("ATTACK_UpdateState " + UserManager.loopCount);
 	}
 
-	IEnumerator ATTACK_ExitState()
+	IEnumerator ATTACK_Exit()
 	{
 		Debug.Log("ATTACK_ExitState " + UserManager.loopCount);
-		yield break;
+		yield return new WaitForSeconds(0.2f);
 	}
 	#endregion
 

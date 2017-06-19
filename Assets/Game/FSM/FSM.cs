@@ -43,9 +43,12 @@ public class FSM : MonoBehaviour
 		public Action DoUpdate = DoNothing;
         public Action DoLateUpdate = DoNothing;
         public Action DoFixedUpdate = DoNothing;
-    }
 
-    private State state = new State();
+		//public Action<Collision> DoOnCollisitonEnter = DoNothingCollision;
+		//public Action<Collider> DoOnTriggerEnter = DoNothingTrigger;
+	}
+
+	private State state = new State();
 	private Coroutine coroutine = null;
 
     public object CurrentState
@@ -123,22 +126,26 @@ public class FSM : MonoBehaviour
 
     void GetEnterExitStateMethods()
     {
-		if(IsReturnTypeCoroutine("EnterState"))
+		if(IsReturnTypeCoroutine("Enter"))
 		{
-			state.enterStateCoroutine = CreateDelegate<Func<IEnumerator>>("EnterState", DoNothingCoroutine);
+			state.enterStateCoroutine = CreateDelegate<Func<IEnumerator>>("Enter", DoNothingCoroutine);
+			state.enterState = DoNothing;
 		}
 		else
 		{
-			state.enterState = CreateDelegate<Action>("EnterState", DoNothing);
+			state.enterStateCoroutine = DoNothingCoroutine;
+			state.enterState = CreateDelegate<Action>("Enter", DoNothing);
 		}
 
-		if (IsReturnTypeCoroutine("ExitState"))
+		if (IsReturnTypeCoroutine("Exit"))
 		{
-			state.enterStateCoroutine = CreateDelegate<Func<IEnumerator>>("ExitState", DoNothingCoroutine);
+			state.exitStateCoroutine = CreateDelegate<Func<IEnumerator>>("Exit", DoNothingCoroutine);
+			state.exitState = DoNothing;
 		}
 		else
 		{
-			state.enterState = CreateDelegate<Action>("ExitState", DoNothing);
+			state.exitStateCoroutine = DoNothingCoroutine;
+			state.exitState = CreateDelegate<Action>("Exit", DoNothing);
 		}
     }
 
@@ -152,7 +159,7 @@ public class FSM : MonoBehaviour
 	void GetUpdateStateMethods()
 	{
 		state.DoFixedUpdate = CreateDelegate<Action>("FixedUpdate", DoNothing);
-		state.DoUpdate = CreateDelegate<Action>("UpdateState", DoNothing);
+		state.DoUpdate = CreateDelegate<Action>("Update", DoNothing);
 		state.DoLateUpdate = CreateDelegate<Action>("LateUpdate", DoNothing);
 	}
 
@@ -197,25 +204,35 @@ public class FSM : MonoBehaviour
 
             dicLookup[methodRoot] = returnValue;
         }
-        return returnValue as T;
 
+		return returnValue as T;
     }
 
 	#region Methods
-	void FixedUpdate()
+	private void FixedUpdate()
 	{
 		state.DoFixedUpdate();
 	}
 
-	void Update()
+	private void Update()
     {
         state.DoUpdate();
     }
 
-	void LateUpdate()
+	private void LateUpdate()
 	{
 		state.DoLateUpdate();
 	}
+
+	//private void OnCollisionEnter(Collision collision)
+	//{
+	//	state.DoOnCollisitonEnter
+	//}
+
+	//private void OnTriggerEnter(Collider other)
+	//{
+	//	state.DoOnTriggerEnter
+	//}
 
 	static void DoNothing()
     {
@@ -225,5 +242,13 @@ public class FSM : MonoBehaviour
 	{
 		yield break;
 	}
-    #endregion
+
+	static void DoNothingCollision(Collision collision)
+	{
+	}
+
+	static void DoNothingTrigger(Collider collider)
+	{
+	}
+	#endregion
 }
