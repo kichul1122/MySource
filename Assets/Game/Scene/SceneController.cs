@@ -46,17 +46,17 @@ public class SceneController : MonoBehaviour
 		//scene = SceneManager.GetSceneByBuildIndex(0);
 		//Debug.Log(scene.name);
 
-		scene = SceneManager.GetSceneByName("Test");
-		Debug.Log(scene.name);
+		//scene = SceneManager.GetSceneByName("Test");
+		//Debug.Log(scene.name);
 
 		//scene = SceneManager.GetSceneByPath("Assets/Scene/AdditiveTest.unity");
 		//Debug.Log(scene.name);
 
-		SceneManager.LoadScene("AdditiveTest", LoadSceneMode.Additive);
+		//SceneManager.LoadScene("AdditiveTest", LoadSceneMode.Additive);
 
-		Scene sceneAdditive = SceneManager.GetSceneByName("AdditiveTest");
+		//Scene sceneAdditive = SceneManager.GetSceneByName("AdditiveTest");
 
-		StartCoroutine(MergeScenes(scene, sceneAdditive));
+		//StartCoroutine(MergeScenes(scene, sceneAdditive));
 		//SceneManager.SetActiveScene(scene);
 		//StartCoroutine(async(asyncOperation));
 

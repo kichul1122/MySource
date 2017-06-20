@@ -2,27 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UserManager : MonoBehaviour
+public class UserManager : SingletonPersistant<UserManager>
 {
-	private static UserManager instance;
-	public static UserManager Instance { get { return instance; } }
-
-	public string ID;
+	#region Private Variables
+	[SerializeField]
+	private string ID;
 
 	[SerializeField]
 	private UserInstance user;
-	public UserInstance User { get { return user; } }
-	
-	private void Awake()
-	{
-		instance = this;
-		LoadUserInstance();
-	}
+	#endregion
 
+	#region Properties
+	public UserInstance User { get { return user; } }
+	#endregion
+
+	#region Private Methods
 	public static int loopCount;
 	private void Update()
 	{
 		loopCount++;
+	}
+	#endregion
+
+	#region Public Methods
+	public void SetID(string ID)
+	{
+		this.ID = ID;
 	}
 
 	[ContextMenu("SaveUserInstance")]
@@ -35,10 +40,15 @@ public class UserManager : MonoBehaviour
 	[ContextMenu("LoadUserInstance")]
 	public void LoadUserInstance()
 	{
-		user = UserInstance.LoadInstance(ID);
-		if(user == null)
+		if (!string.IsNullOrEmpty(ID))
 		{
-			CreateUserInstance();
+			user = UserInstance.LoadInstance(ID);
+			if (user == null)
+			{
+				CreateUserInstance();
+			}
+
+			KC_SceneManager.Instance.sceneController.SetState(KC_SceneController.State.TEST);
 		}
 	}
 
@@ -49,7 +59,7 @@ public class UserManager : MonoBehaviour
 		user = new UserInstance();
 	}
 
-	private void OnApplicationQuit()
+	public override void SaveState()
 	{
 		SaveUserInstance();
 	}
@@ -57,7 +67,7 @@ public class UserManager : MonoBehaviour
 	[ContextMenu("InitData")]
 	public void InitData()
 	{
-		if(user != null)
+		if (user != null)
 		{
 			ItemInstance inventoryItem = new ItemInstance();
 			inventoryItem.AddItemData(new ItemData(10001, "RedPotion", 10));
@@ -70,7 +80,8 @@ public class UserManager : MonoBehaviour
 			user.inventoryItem = inventoryItem;
 		}
 	}
-
+	#endregion
+	
 	#region Test   
 	private string itemName;
 

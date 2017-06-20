@@ -27,4 +27,10 @@ public class Region : MonoBehaviour
 
 	#region Public Events
 	#endregion
+
+	#if UNITY_EDITOR
+	#elif UNITY_ANDROID
+	#elif UNITY_IOS
+	#elif UNITY_STANDALONE
+	#endif
 }

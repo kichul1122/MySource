@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KC_SceneManager : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class KC_SceneManager : SingletonPersistant<KC_SceneManager>
+{
+	#region Public Variables
+	public KC_SceneController sceneController;
+	#endregion
 }

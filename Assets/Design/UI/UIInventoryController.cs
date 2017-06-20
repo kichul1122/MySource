@@ -88,4 +88,26 @@ public class UIInventoryController : MonoBehaviour
 		inventoryItems.RefreshItemInstanceEventHandler -= Refresh;
 	}
 	#endregion
+
+	#region Public Methods
+	public void OnClick_AddItem()
+	{
+		UserManager.Instance.AddRandomGridItem();
+	}
+
+	public void OnInput_SetItemName(string itemName)
+	{
+		UserManager.Instance.SetItemName(itemName);
+	}
+
+	public void OnClick_RemoveItem()
+	{
+		UserManager.Instance.RemoveRandomGridItem();
+	}
+
+	public void OnClick_RefreshItem()
+	{
+		UserManager.Instance.RefreshItemData();
+	}
+	#endregion
 }

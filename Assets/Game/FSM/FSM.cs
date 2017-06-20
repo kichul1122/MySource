@@ -29,7 +29,7 @@ public class FSM<T> : FSM
 
 public class FSM : MonoBehaviour
 {
-    public class State
+    public class FSMState
     {
         public object currentState = null;
         public object lastState = null;
@@ -48,7 +48,7 @@ public class FSM : MonoBehaviour
 		//public Action<Collider> DoOnTriggerEnter = DoNothingTrigger;
 	}
 
-	private State state = new State();
+	private FSMState state = new FSMState();
 	private Coroutine coroutine = null;
 
     public object CurrentState
