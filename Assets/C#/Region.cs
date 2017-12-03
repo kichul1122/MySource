@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// </summary>
 public class Region : MonoBehaviour
 {
 	#region Private Variables
@@ -11,6 +14,38 @@ public class Region : MonoBehaviour
 	#endregion
 
 	#region Properties
+	#endregion
+
+	#region Unity Methods
+	private void Awake()
+	{
+
+	}
+
+	private void Start()
+	{
+
+	}
+
+	private void Update()
+	{
+
+	}
+
+	private void OnEnable()
+	{
+
+	}
+
+	private void OnDisable()
+	{
+
+	}
+
+	private void OnDestroy()
+	{
+
+	}
 	#endregion
 
 	#region Private Methods
@@ -25,12 +60,8 @@ public class Region : MonoBehaviour
 	#region Public Constructors
 	#endregion
 
-	#region Public Events
-	#endregion
-
-	#if UNITY_EDITOR
-	#elif UNITY_ANDROID
-	#elif UNITY_IOS
-	#elif UNITY_STANDALONE
-	#endif
+#if UNITY_EDITOR
+#elif UNITY_ANDROID
+#elif UNITY_IOS
+#endif
 }
