@@ -1,4 +1,4 @@
-# Study&SoucreCode
+# MySource
 1.프로그래밍 관련 공부 내용
 2.프로젝트에서 사용하는 소스코드 모음
 
