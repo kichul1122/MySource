@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 
 /// <summary>
 /// Scene auto loader.
@@ -16,7 +17,7 @@ using UnityEditor;
 [InitializeOnLoad]
 static class SceneAutoLoader
 {
-	// Static constructor binds a playmode-changed callback.
+	// Static constructor binds a playmode-changed callback.it
 	// [InitializeOnLoad] above makes sure this gets executed.
 	static SceneAutoLoader()
 	{

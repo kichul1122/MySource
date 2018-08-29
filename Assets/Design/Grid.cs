@@ -2,53 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+namespace KC
 {
-	public float width;
-	public float height;
-
-	public int limit;
-
-	private void Start()
+	public class Grid : MonoBehaviour
 	{
-		Reposition();
-	}
+		public float width;
+		public float height;
 
-	public void Reposition<T>(List<T> list) where T : MonoBehaviour
-	{
-		for (int i = 0; i < list.Count; ++i)
+		public int limit;
+
+		private void Start()
 		{
-			int vertical = i / limit;
-			int horizontal = i % limit;
-			list[i].transform.localPosition = new Vector3(horizontal * width, -vertical * height, 0);
+			Reposition();
 		}
-	}
 
-	[ContextMenu("Reposition")]
-	public void Reposition()
-	{
-		List<Transform> transformList = GetChildList();
-
-		for (int i = 0; i < transformList.Count; ++i)
+		public void Reposition<T>(List<T> list) where T : MonoBehaviour
 		{
-			int vertical = i / limit;
-			int horizontal = i % limit;
-			transformList[i].transform.localPosition = new Vector3(horizontal * width, -vertical * height, 0);
-		}
-	}
-
-	public List<Transform> GetChildList()
-	{
-		List<Transform> childTransformList = new List<Transform>();
-
-		for (int i = 0; i < transform.childCount; ++i)
-		{
-			Transform childTransform = transform.GetChild(i);
-			if (childTransform && childTransform.gameObject.activeSelf)
+			for (int i = 0; i < list.Count; ++i)
 			{
-				childTransformList.Add(childTransform);
+				int vertical = i / limit;
+				int horizontal = i % limit;
+				list[i].transform.localPosition = new Vector3(horizontal * width, -vertical * height, 0);
 			}
 		}
-		return childTransformList;
+
+		[ContextMenu("Reposition")]
+		public void Reposition()
+		{
+			List<Transform> transformList = GetChildList();
+
+			for (int i = 0; i < transformList.Count; ++i)
+			{
+				int vertical = i / limit;
+				int horizontal = i % limit;
+				transformList[i].transform.localPosition = new Vector3(horizontal * width, -vertical * height, 0);
+			}
+		}
+
+		public List<Transform> GetChildList()
+		{
+			List<Transform> childTransformList = new List<Transform>();
+
+			for (int i = 0; i < transform.childCount; ++i)
+			{
+				Transform childTransform = transform.GetChild(i);
+				if (childTransform && childTransform.gameObject.activeSelf)
+				{
+					childTransformList.Add(childTransform);
+				}
+			}
+			return childTransformList;
+		}
 	}
+
 }
+

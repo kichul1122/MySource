@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using KC;
 
 public class KC_SceneManager : SingletonPersistant<KC_SceneManager>
 {

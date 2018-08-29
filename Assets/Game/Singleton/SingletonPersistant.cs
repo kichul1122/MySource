@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SingletonPersistant<T> : Singleton<T> where T : Component
+namespace KC
 {
-	protected override void GameSetup()
+	public class SingletonPersistant<T> : Singleton<T> where T : UnityEngine.Component
 	{
-		DontDestroyOnLoad(gameObject);
-		base.GameSetup();
+		protected override void GameSetup()
+		{
+			DontDestroyOnLoad(gameObject);
+			base.GameSetup();
+		}
 	}
 }
+

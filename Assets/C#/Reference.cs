@@ -6,7 +6,7 @@ public class Reference : MonoBehaviour
 {
 	private void Start()
 	{
-		Product item = new Product("Kichul", 1111);
+		Product2 item = new Product2("Kichul", 1111);
 		Debug.Log(string.Format("Name: {0}, ID: {1}\n", item.ItemName, item.ItemID));
 
 		ChangeByReference(item);
@@ -16,22 +16,22 @@ public class Reference : MonoBehaviour
 		Debug.Log(string.Format("Name: {0}, ID: {1}\n", item.ItemName, item.ItemID));
 	}
 
-	void ChangeByReference(Product itemRef)
+	void ChangeByReference(Product2 itemRef)
 	{
 		itemRef.ItemID = 2222;
-		itemRef = new Product("NoRef_Kichul", 3333);
+		itemRef = new Product2("NoRef_Kichul", 3333);
 	}
 
-	void ChangeByReference(ref Product itemRef)
+	void ChangeByReference(ref Product2 itemRef)
 	{
 		itemRef.ItemID = 4444;
-		itemRef = new Product("Ref_Kichul", 5555);
+		itemRef = new Product2("Ref_Kichul", 5555);
 	}
 }
 
-class Product
+class Product2
 {
-	public Product(string name, int newID)
+	public Product2(string name, int newID)
 	{
 		ItemName = name;
 		ItemID = newID;

@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class AccountInstance
+namespace KC
 {
-	public AccountData accountData = new AccountData();
+	[System.Serializable]
+	public class AccountInstance
+	{
+		public AccountData accountData = new AccountData();
 
-	public string playTime;
+		public string playTime;
+
+	}
 
 }
+

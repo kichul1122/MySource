@@ -2,63 +2,67 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Singleton<T> : MonoBehaviour where T : Component
+namespace KC
 {
-	public static T Instance { get; private set; }
-
-	public string TypeName { get; private set; }
-
-	public static bool IsActive
+	public class Singleton<T> : MonoBehaviour where T : UnityEngine.Component
 	{
-		get { return Instance != null; }
-	}
+		public static T Instance { get; private set; }
 
-	private void Awake()
-	{
-		TypeName = typeof(T).FullName;
+		public string TypeName { get; private set; }
 
-		if(Instance != null)
+		public static bool IsActive
 		{
-			Destroy(gameObject);
-			return;
+			get { return Instance != null; }
 		}
 
-		Instance = this as T;
+		private void Awake()
+		{
+			TypeName = typeof(T).FullName;
 
-		GameSetup();
-	}
+			if (Instance != null)
+			{
+				Destroy(gameObject);
+				return;
+			}
 
-	private void OnDestroy()
-	{
-		if(Instance == this)
+			Instance = this as T;
+
+			GameSetup();
+		}
+
+		private void OnDestroy()
+		{
+			if (Instance == this)
+			{
+				SaveState();
+				GameDestroy();
+			}
+		}
+
+		protected virtual void OnApplicationQuit()
 		{
 			SaveState();
-			GameDestroy();
+		}
+
+		protected virtual void OnApplicationPause(bool pauseStatus)
+		{
+			SaveState();
+		}
+
+		protected virtual void GameSetup()
+		{
+			gameObject.name = TypeName;
+			Debug.Log(TypeName);
+		}
+
+		public virtual void SaveState()
+		{
+
+		}
+
+		protected virtual void GameDestroy()
+		{
 		}
 	}
 
-	protected virtual void OnApplicationQuit()
-	{
-		SaveState();
-	}
-
-	protected virtual void OnApplicationPause(bool pauseStatus)
-	{
-		SaveState();
-	}
-
-	protected virtual void GameSetup()
-	{
-		gameObject.name = TypeName;
-		Debug.Log(TypeName);
-	}
-
-	public virtual void SaveState()
-	{
-
-	}
-
-	protected virtual void GameDestroy()
-	{
-	}
 }

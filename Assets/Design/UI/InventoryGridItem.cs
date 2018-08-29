@@ -3,50 +3,55 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryGridItem : MonoBehaviour
+namespace KC
 {
-	#region Public Variables
-	public ItemData itemData;
-	#endregion
-
-	#region Private Variables
-	[SerializeField]
-	private Text gridItemName;
-	[SerializeField]
-	private Text count;
-	#endregion
-
-	#region Public Methods
-	public void Init(ItemData itemData)
+	public class InventoryGridItem : MonoBehaviour
 	{
-		this.itemData = itemData;
+		#region Public Variables
+		public ItemData itemData;
+		#endregion
 
-		SubscribeToItemData();
+		#region Private Variables
+		[SerializeField]
+		private Text gridItemName;
+		[SerializeField]
+		private Text count;
+		#endregion
 
-		Refresh();
+		#region Public Methods
+		public void Init(ItemData itemData)
+		{
+			this.itemData = itemData;
+
+			SubscribeToItemData();
+
+			Refresh();
+		}
+		#endregion
+
+		#region Private Methods
+		private void Refresh()
+		{
+			gridItemName.text = string.Format("Name : {0}", itemData.Name);
+			count.text = string.Format("Count : {0}", itemData.Count);
+		}
+
+		private void OnDisable()
+		{
+			UnSubscribeToItemData();
+		}
+
+		private void SubscribeToItemData()
+		{
+			itemData.RefreshItemData += Refresh;
+		}
+
+		private void UnSubscribeToItemData()
+		{
+			itemData.RefreshItemData -= Refresh;
+		}
+		#endregion
 	}
-	#endregion
 
-	#region Private Methods
-	private void Refresh()
-	{
-		gridItemName.text = string.Format("Name : {0}", itemData.Name);
-		count.text = string.Format("Count : {0}", itemData.Count);
-	}
-
-	private void OnDisable()
-	{
-		UnSubscribeToItemData();
-	}
-
-	private void SubscribeToItemData()
-	{
-		itemData.RefreshItemData += Refresh;
-	}
-
-	private void UnSubscribeToItemData()
-	{
-		itemData.RefreshItemData -= Refresh;
-	}
-	#endregion
 }
+
