@@ -1,5 +1,13 @@
 # UniRx
 
+https://github.com/neuecc/UniRx
+
+http://reactivex.io/
+
+https://qiita.com/toRisouP/items/2f1643e344c741dd94f8
+
+https://blog.naver.com/fkgustn1/221063822765
+
 //Rx - Reactive Extensions for Unity, LINQ to Events
 
 
