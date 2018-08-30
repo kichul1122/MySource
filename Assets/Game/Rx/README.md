@@ -1,4 +1,4 @@
-#UniRx#
+# UniRx
 
 //Rx - Reactive Extensions for Unity, LINQ to Events
 
