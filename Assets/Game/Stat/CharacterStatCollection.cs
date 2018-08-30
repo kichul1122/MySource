@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
-//using Sirenix.Serialization;
+using Sirenix.Serialization;
 
 public class CharacterStatCollection
 {
-	//[OdinSerialize]
+	[OdinSerialize]
 	private Dictionary<EStat, CharacterStat> statDic = new Dictionary<EStat, CharacterStat>();
 
 	public CharacterStat GetCharacterStat(EStat eStat)

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UniRx;
-//using Sirenix.OdinInspector;
+using Sirenix.OdinInspector;
 
 [Serializable]
 public class CharacterStat
@@ -12,7 +12,7 @@ public class CharacterStat
 
 	private readonly List<StatModifier> statModifiers;
 
-	//[ShowInInspector]
+	[ShowInInspector]
 	public float Value
 	{
 		get

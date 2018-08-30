@@ -25,5 +25,3 @@ public enum EStat
 	BonusExperience, //경험치발견
 
 }
-//공격력 Damage
-//강인함 Toughness
