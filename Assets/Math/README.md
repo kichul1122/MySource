@@ -1,7 +1,3 @@
 # Math
 
-[ÄÚµåÁ¤¸®](https://github.com/geniikw/JustCodePlz)
-
-asdf
-
-¹Ú±âÃ¶
+[ì½”ë“œì •ë¦¬](https://github.com/geniikw/JustCodePlz)
