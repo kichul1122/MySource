@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace KC
 {
-	public class FSMController : FSM<FSMController.FSMState>
+	public class FSMController : FSM<FSMController.FSMStates>
 	{
-		public enum FSMState
+		public enum FSMStates
 		{
 			IDLE,
 			ATTACK,
@@ -16,7 +16,7 @@ namespace KC
 
 		private void Start()
 		{
-			ActiveCurrentState = FSMState.IDLE;
+			ActiveCurrentState = FSMStates.IDLE;
 		}
 
 		#region IDLE
@@ -32,7 +32,7 @@ namespace KC
 
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
-				SetState(FSMState.ATTACK); return;
+				SetState(FSMStates.ATTACK); return;
 			}
 
 			Debug.Log("IDLE_UpdateState " + UserManager.loopCount);
@@ -54,7 +54,7 @@ namespace KC
 		{
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
-				SetState(FSMState.IDLE); return;
+				SetState(FSMStates.IDLE); return;
 			}
 
 			Debug.Log("ATTACK_UpdateState " + UserManager.loopCount);

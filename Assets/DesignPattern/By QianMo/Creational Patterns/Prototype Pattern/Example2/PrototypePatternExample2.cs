@@ -35,7 +35,7 @@ namespace PrototypePatternExample2
 
     public interface IAnimal : ICloneable
     {
-        object Clone();
+        new object Clone();
     }
 
     public class Sheep : IAnimal
@@ -55,7 +55,7 @@ namespace PrototypePatternExample2
             }
             catch (Exception e)
             {
-                Debug.LogError("Error cloning Sheep");
+                Debug.LogError("Error cloning Sheep" + e);
             }
 
             return sheep;
