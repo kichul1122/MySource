@@ -1,15 +1,18 @@
 # Asset Bundle
 
-¿¡¼Â¹øµéÀÌ 2019¹öÀü¶§ Addressable Asset System ¿ä°É·Î ´ëÃ¼µÈ´Ù.
+[ë²ˆì—­] ì—ì…‹ë²ˆë“¤ê³¼ ë¦¬ì†ŒìŠ¤ì— ëŒ€í•œ ê°€ì´ë“œ(http://code-kooc.tistory.com/entry/%EB%B2%88%EC%97%AD-%EC%97%90%EC%85%8B%EB%B2%88%EB%93%A4%EA%B3%BC-%EB%A6%AC%EC%86%8C%EC%8A%A4%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B0%80%EC%9D%B4%EB%93%9C?category=717775)
+
+ì—ì…‹ë²ˆë“¤ì´ 2019ë²„ì „ë•Œ Addressable Asset System ìš”ê±¸ë¡œ ëŒ€ì²´ëœë‹¤.
 
 https://docs.unity3d.com/Packages/com.unity.addressables@0.2/manual/AddressableAssetsGettingStarted.html
 
 https://youtu.be/u3K86nnzwc4
 
-ÇöÀç»ç¿ëÇÏ·Á¸é ÆĞÅ°Áö ¸Å´ÏÆä½ºÆ®¿¡ ¾Æ·¡°ÍÀ» Ãß°¡ÇØ¾ßÇÑ´Ù.
+í˜„ì¬ì‚¬ìš©í•˜ë ¤ë©´ íŒ¨í‚¤ì§€ ë§¤ë‹ˆí˜ìŠ¤íŠ¸ì— ì•„ë˜ê²ƒì„ ì¶”ê°€í•´ì•¼í•œë‹¤.
 
 {
     "dependencies": {
         "com.unity.addressables": "0.1.2-preview"
     }
 }
+
