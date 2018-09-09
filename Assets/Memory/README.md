@@ -30,7 +30,7 @@ L1 캐시에 있는 데이터중 연산에 필요한 데이터는 레지스터�
 
 레지스터로 데이터가 들어오게 되는데 이경우 극심한 속도저하가 발생한다.
 
-![메모리 관계](https://github.com/kichul1122/MySource/blob/master/Assets/Memory/Memory%20Hierarchy.jpg)
+![메모리 관계](https://github.com/kichul1122/MySource/blob/master/Assets/Memory/Memory.jpg)
 
 (참고 : 
 
