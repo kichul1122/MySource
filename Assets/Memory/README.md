@@ -1,6 +1,9 @@
 # Memory
 
-# 메모리의 종류
+# 메모리 계층
+
+메모리 종류 :
+
 1.메인메모리 : 램(RAM) D램
 
 2.레지스터(Register) : CPU안에 내장 되어 있어서 연산을 위한 저장소 제공
@@ -10,7 +13,7 @@
 4.하드디스크(Hard Disk)와 이외 저장 장치 : 하드디스크, I/O 장치 등등
 
 
-![메모리 계층](https://github.com/kichul1122/MySource/blob/master/Assets/Memory/Memory%20Hierarchy.jpg)
+![메모리 계층 구조](https://github.com/kichul1122/MySource/blob/master/Assets/Memory/Memory%20Hierarchy.jpg)
 
 
 메모리들은 프로그램이 실행하는 동안 데이터의 입력 및 출력을 담당한다.
