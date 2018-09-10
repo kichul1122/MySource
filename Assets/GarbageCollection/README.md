@@ -31,7 +31,7 @@ Copyright (C) 2002-2010 Novell, Inc and Contributors. www.mono-project.com
 
 현재 Unity 에서 쓰이는 Mono-runtime 에 대해서 알아보았다. 아래에서는 언제가 될지 모르는 Mono 프레임워크 업데이트에 대비해 SGen 의 간단한 동작방식과 쓰이는 여러 알고리즘에 대해서 알아볼것이다.
 
-Mark And Sweep
+## Mark And Sweep
 
 가장 오래됐으며, 가장 구현이 간단한 GC알고리즘이다.
 
@@ -59,7 +59,7 @@ Mark And Sweep
 
 
 
-Copying GC
+## Copying GC
 
 메모리 파편화 현상을 두개의 메모리 공간을 사용해서 해결한 방법이다.
 
@@ -89,7 +89,7 @@ A공간에 할당을 하다가 GC를 한번 돌릴 때, 쓸모있는 메모리�
 
 
 
-Generational GC
+## Generational GC
 
 우리가 오늘 알아볼 SGen (Simple Generational GC)도 여기에 속한다.
 
