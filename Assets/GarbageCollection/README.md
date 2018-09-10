@@ -134,7 +134,3 @@ Write Barrier인데 Major Heap -> Nursery를 참조하고 있다면 Write Barrie
 - 파편화가 존재한다.
 
 - 공간중 한 공간만 꽉차도 터진다. (근데 그럴일은 거의 없다.)
-
-
-
-출처: http://proal.tistory.com/72 [CodeVillain's Secret base]
