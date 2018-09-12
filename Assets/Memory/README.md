@@ -124,3 +124,48 @@ L2 캐시까지 존재함으로써 메인 메모리에 대한 접근은 더욱 �
 LRU(Least-Recently Used) : 가장 오래 전에 참조된 블록을 밀어내는 알고리즘)
 
 출처: http://dakuo.tistory.com/126 [hacker dakuo]
+
+"프로그래머는 레지스터, 캐쉬, 메인 메모리, 하드디스크뿐만 아니라 그 밖의 I/O장치들과의 입출력 타이밍 및 대기 시간 등을 가장 중요한 요소로 생각하고 항상 고민 해야한다"
+
+메모리의 역할 : 데이터의 입력 및 출력
+CPU를 기준으로 얼마나 멀리 떠어져 있느냐
+
+버스 인터페이스 컨트롤 : 메인 메모리 접근을 하기 위해
+
+레지스터, L1 캐쉬, L2캐쉬 메인 메모리, 하드디스크
+
+Temporal Locality : 프로그램 실행 시 한 번 접근이 이뤄진 주소의 메모리 영역은 자주 접근하게 된다는 프로그램 특성을 표현 할 때 사용 하는 말
+Spatial Locality : 프로그램 실행 시 접근하는 메모리 영역은 이미 접근이 이루어진 영역의 근처일 확률이 높다는 프로그램 성격을 표현할 때 사용 하는 말
+
+for(int i = 0; i < Array.Length; ++i)
+{
+	Array[i] = i;
+}
+
+i라는 변수에 자주 접근
+Array[i] 근처에 접근
+
+Cache Hit
+
+Cache Miss
+
+메모리간 데이터 이동을 블록 단위로 전송을 해서 Spatial Locality의 특성을 성능 향상에 십분 활용하게 된다.
+
+데이터로 가득차 있는 메모리들의 블록 교체 알고리즘
+
+LRU(Least_Recently Used) : 가장 오래 전에 참조된 블록을 밀어내는 알고리즘
+
+```
+//Cache Friendly Code
+
+int total = 0;
+for(int i = 0; i < 10; ++i)
+{
+	for(int j = 0; j < 10; ++j)
+	{
+		total += arr[j][i]; => total += arr[i][j];
+	}
+}
+//Temporal => total
+//Spatial => total =+ arr[i][j]
+```
