@@ -29,6 +29,7 @@ namespace KC
 		public void OnEnable()
 		{
 			UIManager.Instance.AddIUIBack(this);
+		
 		}
 
 		public void OnDisable()
