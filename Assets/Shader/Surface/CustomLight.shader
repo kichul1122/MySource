@@ -47,16 +47,19 @@
 		float4 LightingTest(SurfaceOutput s, float3 lightDir, float3 viewDir, float atten){
 			float4 final;
 
+			//램버트
 			float3 DiffColor;
 			float ndotl = saturate(dot(s.Normal, lightDir));
 			DiffColor = ndotl * s.Albedo * _LightColor0.rgb * atten;
 
+			//블린퐁
 			float3 SpecColor;
 			float3 H = normalize(lightDir + viewDir);
 			float spec = saturate(dot(H, s.Normal));
 			spec = pow(spec, _SpecPow);
 			SpecColor = spec * _SpecCol.rgb * s.Gloss;
 
+			//림라이트
 			float3 rimColor;
 			float rim = abs(dot(viewDir, s.Normal));
 			float invrim = 1 - rim;
