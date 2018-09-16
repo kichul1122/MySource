@@ -1,8 +1,3 @@
 # Sahder
 
-쉐이더란?
-음영 : 사람은 음영을 통해서 공간감을 느낀다. 여기에 색과 농담을 추가하여 표현
-'그래픽 데이터의 음영과 색상을 계산하여 다양한 재질을 표현하는 방법'
-매터리얼(Material)
-
-
+[Best Practice: Setting up the Lighting Pipeline](https://docs.unity3d.com/2018.2/Documentation/Manual/BestPracticeLightingPipelines.html)
