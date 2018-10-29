@@ -12,7 +12,7 @@
 
 - [Garbage Collector In Unity](https://hrmrzizon.github.io/2017/04/23/garbage-collector-in-unity/)
 
-Unity가 돌아가는 것은 MOno기반의 가상머신에서 돌아가는 것이다.이렇게 실제 runtime 상에서 돌아가는 가상머신을 Mono-runtime 이라 칭하는데 Mono 는 C# 을 주로 타게팅하고 만들어진 프레임워크이기 때문에 Mono-runtime 은 GC 를 탑재해야 했다. Mono 2.8 이하 버젼에서는 Boehm-Demers-Weiser(이하 Boehm) 라는 이름의 GC 알고리즘을 택했었는데, 이는 1988년에 처음 릴리즈되었고 (license) C/C++ 를 타겟으로 만들어진 GC 라이브러리로써(Github) 당시 쓸만한 GC 였던 것 같다. SGen Introduction 에서는 안정성과 이식성이 좋아 쓰였다고 한다. 하지만 Boehm GC 는 C/C++ 을 타겟으로 구현되었다. 그래서 여러 문제와 한계가 있어 Mono-runtime 은 다른 대안이 필요했다. 결국 Mono 에서는 직접 GC 를 개발했다. 주로 칭하는 이름은 SGen 길게 풀면 Simple Generational 이다. Mono 2.8 버젼부터는 SGen 으로 GC 를 통채로 바꾸었다.
+Unity가 돌아가는 것은 Mono기반의 가상머신에서 돌아가는 것이다.이렇게 실제 runtime 상에서 돌아가는 가상머신을 Mono-runtime 이라 칭하는데 Mono 는 C# 을 주로 타게팅하고 만들어진 프레임워크이기 때문에 Mono-runtime 은 GC 를 탑재해야 했다. Mono 2.8 이하 버젼에서는 Boehm-Demers-Weiser(이하 Boehm) 라는 이름의 GC 알고리즘을 택했었는데, 이는 1988년에 처음 릴리즈되었고 (license) C/C++ 를 타겟으로 만들어진 GC 라이브러리로써(Github) 당시 쓸만한 GC 였던 것 같다. SGen Introduction 에서는 안정성과 이식성이 좋아 쓰였다고 한다. 하지만 Boehm GC 는 C/C++ 을 타겟으로 구현되었다. 그래서 여러 문제와 한계가 있어 Mono-runtime 은 다른 대안이 필요했다. 결국 Mono 에서는 직접 GC 를 개발했다. 주로 칭하는 이름은 SGen 길게 풀면 Simple Generational 이다. Mono 2.8 버젼부터는 SGen 으로 GC 를 통채로 바꾸었다.
 
 하지만 지금 Unity 에서 쓰는 Mono 의 버젼은 2.8 을 넘지 못한다. 또한 직접 파일을 확인해 Mono 의 정보를 보면 아래와 같이 command line 에서 확인할 수 있다.
 
